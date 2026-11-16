@@ -28,7 +28,6 @@ namespace HelicopterGame
             ApplyAngularDamping();
         }
 
-        // Quadratic drag for every local axis: F = -0.5 * rho * CdA * v * |v|
         private void ApplyDrag()
         {
             Vector3 velocity = Quaternion.Inverse(_body.rotation) * _body.linearVelocity;

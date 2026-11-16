@@ -2,7 +2,6 @@ using UnityEngine;
 
 namespace HelicopterGame
 {
-    // Follows the helicopter heading but ignores pitch and roll, so the tilt stays visible.
     public sealed class ChaseCamera : MonoBehaviour
     {
         [SerializeField] private Transform _target;

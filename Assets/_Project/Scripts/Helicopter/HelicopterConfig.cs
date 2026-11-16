@@ -8,12 +8,10 @@ namespace HelicopterGame
         [Header("Airframe")]
         [SerializeField] private float _mass = 5500f;
         [SerializeField] private Vector3 _centerOfMass = new Vector3(0f, 1.7f, 0f);
-        [Tooltip("Moments of inertia around X (pitch), Y (yaw), Z (roll), kg*m^2")]
         [SerializeField] private Vector3 _inertiaTensor = new Vector3(21500f, 21000f, 4800f);
 
         [Header("Aerodynamics")]
         [SerializeField] private float _airDensity = 1.225f;
-        [Tooltip("Drag coeff multiplied by reference area for X (side), Y (vertical), Z (front)")]
         [SerializeField] private Vector3 _dragAreas = new Vector3(25f, 40f, 8f);
         [SerializeField] private Vector3 _centerOfPressure = new Vector3(0f, 1.7f, -1.2f);
         [SerializeField] private Vector3 _angularDamping = new Vector3(13000f, 12600f, 3700f);
@@ -26,9 +24,7 @@ namespace HelicopterGame
         [SerializeField] private float _maxThrust = 89000f;
         [SerializeField] private float _rotorRadius = 6.55f;
         [SerializeField] private float _maxGroundEffect = 1.3f;
-        [Tooltip("Reaction torque on the fuselage per Newton of thrust")]
         [SerializeField] private float _reactionTorquePerThrust = 0.8f;
-        [Tooltip("Max cyclic torque for pitch (X) and roll (Y)")]
         [SerializeField] private Vector2 _maxCyclicTorque = new Vector2(150000f, 40000f);
 
         [Header("Tail rotor")]

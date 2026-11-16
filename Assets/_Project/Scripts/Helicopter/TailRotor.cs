@@ -8,12 +8,10 @@ namespace HelicopterGame
         [SerializeField] private Rigidbody _body;
         [SerializeField] private HelicopterEngine _engine;
 
-        private Vector3 _localPosition;
         private float _yawTorque;
+        private Vector3 _localPosition;
 
         public float Thrust { get; private set; }
-
-        // Torque about the center of mass, contains yaw and a bit of roll because the rotor is above it.
         public Vector3 AppliedTorque { get; private set; }
 
         private void Awake()

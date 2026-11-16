@@ -2,7 +2,6 @@ using UnityEngine;
 
 namespace HelicopterGame
 {
-    // Flight assist: turns pilot input into rotor commands. The body is moved only by rotor forces.
     [DefaultExecutionOrder(-10)]
     public sealed class FlightController : MonoBehaviour
     {
@@ -67,10 +66,9 @@ namespace HelicopterGame
                 angularAcceleration = new Vector3(tilt.x, CalculateYawAcceleration(deltaTime), tilt.y);
             }
 
-            // torque = inertia * angular acceleration
             Vector3 torque = Vector3.Scale(_body.inertiaTensor, angularAcceleration);
 
-            // Cyclic also cancels the roll moment of the tail rotor, the tail rotor cancels the main rotor reaction torque.
+            // Cyclic cancels the roll moment of the rotor
             Vector3 tailRotorTorque = Quaternion.Inverse(_body.rotation) * _tailRotor.AppliedTorque;
             _mainRotor.SetControls(_collectivePitch, new Vector2(torque.x - tailRotorTorque.x, torque.z - tailRotorTorque.z));
             _tailRotor.SetYawTorque(torque.y - _mainRotor.ReactionTorque);
@@ -97,7 +95,6 @@ namespace HelicopterGame
 
         private float CalculateTargetVerticalSpeed(float input, float verticalSpeed)
         {
-            // Descent slows down near the ground for a soft touchdown.
             float descentLimit = Mathf.Min(_config.MaxDescentRate, _config.TouchdownSpeed + _groundSensor.Altitude * _config.DescentAltitudeGain);
 
             if (input != 0f)
@@ -108,7 +105,6 @@ namespace HelicopterGame
 
             if (!IsHoldingAltitude)
             {
-                // Stop first, then remember the altitude, otherwise it overshoots.
                 if (Mathf.Abs(verticalSpeed) > _config.AltitudeCaptureSpeed)
                 {
                     return 0f;
@@ -122,7 +118,6 @@ namespace HelicopterGame
             return Mathf.Clamp(altitudeError * _config.AltitudeHoldGain, -descentLimit, _config.MaxClimbRate);
         }
 
-        // Collective pitch at which the vertical part of the thrust equals the weight.
         private float CalculateHoverCollectivePitch()
         {
             float availableThrust = _mainRotor.AvailableThrust;
@@ -134,35 +129,32 @@ namespace HelicopterGame
             float verticalPart = Mathf.Max(Vector3.Dot(_body.rotation * Vector3.up, Vector3.up), 0.5f);
             return Mathf.Clamp01(Weight / verticalPart / availableThrust);
         }
-
-        // Returns angular acceleration for pitch (x) and roll (y), rad/s^2.
         private Vector2 CalculateTiltAcceleration(float deltaTime)
         {
-            float heading = _body.rotation.eulerAngles.y;
-            Vector3 velocity = Quaternion.Inverse(Quaternion.Euler(0f, heading, 0f)) * _body.linearVelocity;
-            Vector2 input = new Vector2(ApplyDeadZone(_input.Cyclic.x), ApplyDeadZone(_input.Cyclic.y));
+            _targetTilt = Vector2.MoveTowards(_targetTilt, CalculateTargetTilt(), _config.TiltRate * deltaTime);
 
-            // Stick sets the tilt angle; released stick tilts against the drift and stops the helicopter.
-            float pitch = input.y != 0f ? input.y * _config.MaxTiltAngle : CalculateHoverHoldAngle(velocity.z);
-            float bank = input.x != 0f ? input.x * _config.MaxTiltAngle : CalculateHoverHoldAngle(velocity.x);
-
-            // Tail rotor pushes the helicopter sideways, a small opposite bank cancels it.
-            bank -= Mathf.Atan2(_tailRotor.Thrust, Weight) * Mathf.Rad2Deg;
-
-            _targetTilt = Vector2.MoveTowards(_targetTilt, new Vector2(pitch, bank), _config.TiltRate * deltaTime);
-
-            Quaternion targetRotation = Quaternion.Euler(0f, heading, 0f) * Quaternion.Euler(_targetTilt.x, 0f, -_targetTilt.y);
-            Vector3 error = CalculateTiltError(_body.rotation * Vector3.up, targetRotation * Vector3.up);
+            // Current angles in degrees
+            float pitch = -Mathf.Asin((_body.rotation * Vector3.forward).y) * Mathf.Rad2Deg;
+            float bank = -Mathf.Asin((_body.rotation * Vector3.right).y) * Mathf.Rad2Deg;
             Vector3 angularVelocity = Quaternion.Inverse(_body.rotation) * _body.angularVelocity;
 
-            // Spring-damper: acceleration = w^2 * error - 2 * damping * w * angular velocity
-            float frequency = _config.TiltFrequency;
-            float damping = 2f * _config.TiltDampingRatio * frequency;
-            float stiffness = frequency * frequency;
-
             return new Vector2(
-                stiffness * error.x - damping * angularVelocity.x,
-                stiffness * error.z - damping * angularVelocity.z);
+                Spring(_targetTilt.x - pitch, angularVelocity.x),
+                Spring(bank - _targetTilt.y, angularVelocity.z));
+        }
+        private Vector2 CalculateTargetTilt()
+        {
+            Vector3 velocity = Quaternion.Inverse(Quaternion.Euler(0f, _body.rotation.eulerAngles.y, 0f)) * _body.linearVelocity;
+            float stickX = ApplyDeadZone(_input.Cyclic.x);
+            float stickY = ApplyDeadZone(_input.Cyclic.y);
+
+            // Stick sets the angle
+            float pitch = stickY != 0f ? stickY * _config.MaxTiltAngle : CalculateHoverHoldAngle(velocity.z);
+            float bank = stickX != 0f ? stickX * _config.MaxTiltAngle : CalculateHoverHoldAngle(velocity.x);
+
+            // Tail rotor pushes the helicopter
+            bank -= Mathf.Atan2(_tailRotor.Thrust, Weight) * Mathf.Rad2Deg;
+            return new Vector2(pitch, bank);
         }
 
         private float CalculateHoverHoldAngle(float drift)
@@ -170,12 +162,10 @@ namespace HelicopterGame
             return Mathf.Clamp(-drift * _config.HoverHoldGain, -_config.MaxHoverHoldAngle, _config.MaxHoverHoldAngle);
         }
 
-        // Local rotation (axis * angle in radians) that turns the current up vector into the target one.
-        private Vector3 CalculateTiltError(Vector3 currentUp, Vector3 targetUp)
+        private float Spring(float angleError, float angularVelocity)
         {
-            Vector3 axis = Vector3.Cross(currentUp, targetUp).normalized;
-            float angle = Vector3.Angle(currentUp, targetUp) * Mathf.Deg2Rad;
-            return Quaternion.Inverse(_body.rotation) * (axis * angle);
+            float frequency = _config.TiltFrequency;
+            return frequency * frequency * angleError * Mathf.Deg2Rad - 2f * _config.TiltDampingRatio * frequency * angularVelocity;
         }
 
         private float CalculateYawAcceleration(float deltaTime)

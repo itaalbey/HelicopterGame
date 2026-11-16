@@ -7,7 +7,6 @@ namespace HelicopterGame
     {
         [SerializeField] private HelicopterConfig _config;
 
-        // 0 - rotor stopped, 1 - nominal RPM
         public float RotorSpeed { get; private set; }
 
         private void FixedUpdate()

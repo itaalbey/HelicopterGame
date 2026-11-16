@@ -10,8 +10,8 @@ namespace HelicopterGame
         [SerializeField] private GroundSensor _groundSensor;
 
         private Vector3 _localHubPosition;
-        private float _collectivePitch;
         private Vector2 _cyclicTorque;
+        private float _collectivePitch;
 
         public float CollectivePitch => _collectivePitch;
         public float RotorSpeed => _engine.RotorSpeed;
@@ -19,7 +19,6 @@ namespace HelicopterGame
         public float ReactionTorque { get; private set; }
         public float GroundEffect { get; private set; } = 1f;
 
-        // Thrust and control power grow with the square of the rotor speed.
         public float Power => _engine.RotorSpeed * _engine.RotorSpeed;
         public float AvailableThrust => _config.MaxThrust * Power * GroundEffect;
 
@@ -43,7 +42,6 @@ namespace HelicopterGame
             Thrust = _collectivePitch * AvailableThrust;
             _body.AddForceAtPosition(up * Thrust, hub);
 
-            // The blades turn counter-clockwise, so the fuselage is pushed clockwise.
             ReactionTorque = Thrust * _config.ReactionTorquePerThrust;
             _body.AddTorque(up * ReactionTorque);
 
@@ -53,7 +51,6 @@ namespace HelicopterGame
             _body.AddRelativeTorque(new Vector3(pitchTorque, 0f, rollTorque));
         }
 
-        // Near the ground thrust grows: T / T_free = 1 / (1 - (R / 4h)^2)
         private float CalculateGroundEffect(float rotorHeight)
         {
             float ratio = _config.RotorRadius / (4f * Mathf.Max(rotorHeight, 0.01f));
