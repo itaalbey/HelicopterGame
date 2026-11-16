@@ -1,0 +1,396 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1546112753750981365
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4461130890802165451}
+  - component: {fileID: 622766633770013063}
+  m_Layer: 0
+  m_Name: MainRotor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4461130890802165451
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546112753750981365}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.5604519e-15, y: 4.29885, z: -0.000000007450581}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4059252973813881589}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &622766633770013063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546112753750981365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54a887d344069f54583be539aeba4e5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: HelicopterGame::HelicopterGame.MainRotor
+  _config: {fileID: 11400000, guid: 8916920c32b11ef4eb6f076ba01e5a53, type: 2}
+  _body: {fileID: 6465246262546015946}
+  _engine: {fileID: 55882950310166326}
+  _groundSensor: {fileID: 8908231904370925572}
+--- !u!1 &2681548738356007185
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4078617066913352406}
+  - component: {fileID: 8908231904370925572}
+  m_Layer: 0
+  m_Name: GroundSensor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4078617066913352406
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2681548738356007185}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4059252973813881589}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8908231904370925572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2681548738356007185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f35c84f9cd5980f47b112c57fc41db15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: HelicopterGame::HelicopterGame.GroundSensor
+  _body: {fileID: 6465246262546015946}
+  _groundLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  _rayStartHeight: 0.5
+  _maxDistance: 500
+  _groundedThreshold: 0.15
+--- !u!1 &6537138461533229049
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 802989597054893506}
+  - component: {fileID: 2615105515297144683}
+  m_Layer: 0
+  m_Name: TailRotor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &802989597054893506
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6537138461533229049}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.000076979464, y: 3.7348492, z: -9.000954}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4059252973813881589}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2615105515297144683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6537138461533229049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f603f3f4e6f41f418d536c7faa4ab78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: HelicopterGame::HelicopterGame.TailRotor
+  _config: {fileID: 11400000, guid: 8916920c32b11ef4eb6f076ba01e5a53, type: 2}
+  _body: {fileID: 6465246262546015946}
+  _engine: {fileID: 55882950310166326}
+--- !u!1 &9034281606999532777
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4059252973813881589}
+  - component: {fileID: 6465246262546015946}
+  - component: {fileID: 2473954052757946071}
+  - component: {fileID: 55882950310166326}
+  - component: {fileID: 1189244177282830860}
+  m_Layer: 0
+  m_Name: Helicopter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4059252973813881589
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9034281606999532777}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8007576397422036281}
+  - {fileID: 4461130890802165451}
+  - {fileID: 802989597054893506}
+  - {fileID: 4078617066913352406}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &6465246262546015946
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9034281606999532777}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &2473954052757946071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9034281606999532777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d759b0c203998498d74fbafed3e368, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: HelicopterGame::HelicopterGame.HelicopterBody
+  _config: {fileID: 11400000, guid: 8916920c32b11ef4eb6f076ba01e5a53, type: 2}
+--- !u!114 &55882950310166326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9034281606999532777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39cac37ec44cf7b46b7b79db0690e817, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: HelicopterGame::HelicopterGame.HelicopterEngine
+  _config: {fileID: 11400000, guid: 8916920c32b11ef4eb6f076ba01e5a53, type: 2}
+--- !u!114 &1189244177282830860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9034281606999532777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 787861ddaeb42144e9a80e1873ecac41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: HelicopterGame::HelicopterGame.FlightController
+  _config: {fileID: 11400000, guid: 8916920c32b11ef4eb6f076ba01e5a53, type: 2}
+  _input: {fileID: 0}
+  _body: {fileID: 6465246262546015946}
+  _groundSensor: {fileID: 8908231904370925572}
+  _mainRotor: {fileID: 622766633770013063}
+  _tailRotor: {fileID: 2615105515297144683}
+--- !u!1001 &7541868236151317202
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4059252973813881589}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 371173af8200a584288e29675f58af96, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.868654e-11
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 371173af8200a584288e29675f58af96, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 371173af8200a584288e29675f58af96, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.000000014900845
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 371173af8200a584288e29675f58af96, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.0046096966
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 371173af8200a584288e29675f58af96, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 371173af8200a584288e29675f58af96, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.9999894
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 371173af8200a584288e29675f58af96, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 371173af8200a584288e29675f58af96, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 371173af8200a584288e29675f58af96, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 371173af8200a584288e29675f58af96, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 371173af8200a584288e29675f58af96, type: 3}
+      propertyPath: m_Name
+      value: Model
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 635547659545568360, guid: 371173af8200a584288e29675f58af96, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5128355246727283610}
+    - targetCorrespondingSourceObject: {fileID: -28851038356797898, guid: 371173af8200a584288e29675f58af96, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9089783077631499701}
+    - targetCorrespondingSourceObject: {fileID: -6618847488593873646, guid: 371173af8200a584288e29675f58af96, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7014429707880427991}
+  m_SourcePrefab: {fileID: 100100000, guid: 371173af8200a584288e29675f58af96, type: 3}
+--- !u!1 &1671848188967806180 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -28851038356797898, guid: 371173af8200a584288e29675f58af96, type: 3}
+  m_PrefabInstance: {fileID: 7541868236151317202}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9089783077631499701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671848188967806180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c958c4035baa1f345a24ea3fcd22c7b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: HelicopterGame::HelicopterGame.RotorSpinner
+  _engine: {fileID: 55882950310166326}
+  _localAxis: {x: 0, y: 1, z: 0}
+  _maxAngularSpeed: -1440
+--- !u!1 &5516690144745871296 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6618847488593873646, guid: 371173af8200a584288e29675f58af96, type: 3}
+  m_PrefabInstance: {fileID: 7541868236151317202}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7014429707880427991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5516690144745871296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c958c4035baa1f345a24ea3fcd22c7b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: HelicopterGame::HelicopterGame.RotorSpinner
+  _engine: {fileID: 55882950310166326}
+  _localAxis: {x: -0.99995756, y: 0, z: 0.009219295}
+  _maxAngularSpeed: 2880
+--- !u!1 &6952416571915667130 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 635547659545568360, guid: 371173af8200a584288e29675f58af96, type: 3}
+  m_PrefabInstance: {fileID: 7541868236151317202}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &5128355246727283610
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6952416571915667130}
+  m_Material: {fileID: 13400000, guid: 639345771798c3c4594cb62f814f7cc7, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2959467708922500008, guid: 371173af8200a584288e29675f58af96, type: 3}
+--- !u!4 &8007576397422036281 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 371173af8200a584288e29675f58af96, type: 3}
+  m_PrefabInstance: {fileID: 7541868236151317202}
+  m_PrefabAsset: {fileID: 0}

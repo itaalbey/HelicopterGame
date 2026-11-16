@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb70b50f2611c0a4c8702f5a5c5cb1b2, type: 3}
+  m_Name: HelicopterConfig
+  m_EditorClassIdentifier: HelicopterGame::HelicopterGame.HelicopterConfig
+  _mass: 5500
+  _centerOfMass: {x: 0, y: 1.7, z: 0}
+  _inertiaTensor: {x: 24000, y: 21000, z: 4800}
+  _airDensity: 1.225
+  _dragAreas: {x: 25, y: 40, z: 8}
+  _centerOfPressure: {x: 0, y: 1.7, z: -1.2}
+  _angularDamping: {x: 13000, y: 12600, z: 3700}
+  _spoolUpTime: 4
+  _maxThrust: 89000
+  _rotorRadius: 6.55
+  _maxGroundEffect: 1.3
+  _reactionTorquePerThrust: 0.8
+  _maxCyclicTorque: {x: 150000, y: 40000}
+  _maxTailThrust: 12000
+  _inputDeadZone: 0.05
+  _maxClimbRate: 8
+  _maxDescentRate: 6
+  _touchdownSpeed: 0.6
+  _descentAltitudeGain: 0.8
+  _altitudeHoldGain: 1.2
+  _altitudeCaptureSpeed: 0.5
+  _collectivePitchRate: 1.5
+  _verticalSpeedP: 0.12
+  _verticalSpeedI: 0.08
+  _maxTiltAngle: 25
+  _tiltRate: 60
+  _tiltFrequency: 4
+  _tiltDampingRatio: 0.9
+  _hoverHoldGain: 2.5
+  _maxHoverHoldAngle: 18
+  _maxYawRate: 23.55
+  _yawRateP: 3
+  _yawRateI: 1.5

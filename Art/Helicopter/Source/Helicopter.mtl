@@ -1,0 +1,36 @@
+# Blender 5.3.0 MTL File: 'None'
+# www.blender.org
+
+newmtl M260
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd uh-1y-venom-all-loadouts-broken-arrow/source/UH1Y_Venom_Lineup/textures/M260_BaseColor.png
+map_Ns uh-1y-venom-all-loadouts-broken-arrow/source/UH1Y_Venom_Lineup/textures/M260_Roughness.png
+map_refl uh-1y-venom-all-loadouts-broken-arrow/source/UH1Y_Venom_Lineup/textures/M260_Metallic.png
+map_Bump -bm 1.000000 uh-1y-venom-all-loadouts-broken-arrow/source/UH1Y_Venom_Lineup/textures/M260_Normal.png
+
+newmtl US_UH_1Y_Body1
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd uh-1y-venom-all-loadouts-broken-arrow/source/UH1Y_Venom_Lineup/textures/US_UH_1Y_Body1_Standard_BaseColor.png
+map_Ns uh-1y-venom-all-loadouts-broken-arrow/source/UH1Y_Venom_Lineup/textures/US_UH_1Y_Body1_Roughness.png
+map_refl uh-1y-venom-all-loadouts-broken-arrow/source/UH1Y_Venom_Lineup/textures/US_UH_1Y_Body1_Metallic.png
+map_Bump -bm 1.000000 uh-1y-venom-all-loadouts-broken-arrow/source/UH1Y_Venom_Lineup/textures/US_UH_1Y_Body1_Normal.png
+
+newmtl US_UH_1Y_Glass
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.060000 0.080000 0.080000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 0.650000
+illum 6
